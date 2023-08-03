@@ -43,8 +43,13 @@ export const createUserDocumentFromAuth = async (userAuth, additonalInfo = {}) =
     }
     return userDocRef;
 }
-
+// Create new user with email amd password 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
     if (!email || !password) return
     return await createUserWithEmailAndPassword(auth, email, password)
+}
+
+export const signInUserAuthUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return
+    return await signInWithEmailAndPassword(auth, email, password)
 }
