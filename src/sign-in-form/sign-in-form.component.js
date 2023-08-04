@@ -1,4 +1,4 @@
-import { useState, useContext, useReducer } from "react";
+import { useState } from "react";
 import { signInUserAuthUserWithEmailAndPassword, signInWithGooglePopup, createUserDocumentFromAuth } from "../utils/firebase/firebase.utils"
 import FormInput from "../components/form-input/form-input.component";
 import Button from "../components/button/button.component";
@@ -10,7 +10,7 @@ const defaultFormFields = {
 }
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
-    const { setCurrentUser } = useContext(UserContext)
+    // const { setCurrentUser } = useContext(UserContext)
     // Desturucturing form filed items
     const { email, password } = formFields;
     // console.log(formFields)
@@ -26,7 +26,7 @@ const SignInForm = () => {
             const { user } = await signInUserAuthUserWithEmailAndPassword(email, password);
             // console.log(response)
             alert('User Logged IN')
-            setCurrentUser(user)
+            // setCurrentUser(user)
             resetForm()
         }
         catch (error) {
