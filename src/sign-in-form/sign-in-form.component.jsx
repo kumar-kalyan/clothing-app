@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signInUserAuthUserWithEmailAndPassword, signInWithGooglePopup, createUserDocumentFromAuth } from "../utils/firebase/firebase.utils"
 import FormInput from "../components/form-input/form-input.component";
-import Button from "../components/button/button.component";
+import Button, {BUTTON_TYPE_CLASSES} from "../components/button/button.component";
 import { UserContext } from "../context/user.context";
 import './sign-in-form.styles.scss'
 const defaultFormFields = {
