@@ -1,4 +1,4 @@
-import './checkout.styles.scss'
+import { CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from './checkout.styles'
 import { useContext } from 'react'
 import { CartContext } from '../../context/cart.context'
 import Button from '../../components/button/button.component'
@@ -11,35 +11,35 @@ const Checkout = () => {
   const { cartItems, cartTotal } = useContext(CartContext)
   console.log(cartItems)
 
-  return (<div className='checkout-container'>
-    <div className='checkout-container'>
-      <div className='checkout-header'>
-        <div className='header-block'>
+  return (
+    <CheckoutContainer>
+      <CheckoutHeader>
+        <HeaderBlock>
           <span>Product</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Description</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Quantity</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Price</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Remove</span>
-        </div>
-      </div>
+        </HeaderBlock>
+      </CheckoutHeader>
       {cartItems.map((cartItem) => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <div className="place-order">
-        <div className='total'>TOTAL: ${cartTotal}</div>
+        <Total>TOTAL: ${cartTotal}</Total>
         <Button>Place Order</Button>
       </div>
 
-    </div>
-  </div>)
+    </CheckoutContainer>
+  )
 }
 
 export default Checkout; 
