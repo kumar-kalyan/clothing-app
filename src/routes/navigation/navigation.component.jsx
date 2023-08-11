@@ -11,7 +11,6 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg'
 const Navigation = () => {
     const { currentUser } = useContext(UserContext)
     const { isCartOpen } = useContext(CartContext)
-
     return (<Fragment>
         <NavigationContainer>
             <LogoContainer to='/'>
