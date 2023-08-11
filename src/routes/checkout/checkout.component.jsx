@@ -1,7 +1,8 @@
 import { CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from './checkout.styles'
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../../context/cart.context'
-import { placeUserOrder} from '../../utils/firebase/firebase.utils'
+import { placeUserOrder } from '../../utils/firebase/firebase.utils'
 import Button from '../../components/button/button.component'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
 import { UserContext } from '../../context/user.context'
@@ -10,17 +11,20 @@ import { UserContext } from '../../context/user.context'
 // Can Delete cart Items
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext)
-  
+  const { cartItems, cartTotal, clearCart } = useContext(CartContext)
+  const naviagate = useNavigate()
   const placeOrder = async () => {
 
     try {
       const res = await placeUserOrder(cartTotal, cartItems)
-      console.log(res)
+      alert("order placed Successfully")
+
     }
     catch (err) {
       console.log(err)
     }
+    clearCart();
+    naviagate('/')
   }
 
   return (
