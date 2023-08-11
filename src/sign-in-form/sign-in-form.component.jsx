@@ -3,6 +3,7 @@ import { signInUserAuthUserWithEmailAndPassword, signInWithGooglePopup, createUs
 import FormInput from "../components/form-input/form-input.component";
 import Button from "../components/button/button.component";
 import { UserContext } from "../context/user.context";
+import { useContext } from "react";
 import './sign-in-form.styles.scss'
 const defaultFormFields = {
     email: '',
@@ -10,7 +11,7 @@ const defaultFormFields = {
 }
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
-    // const { setCurrentUser } = useContext(UserContext)
+    const { setCurrentUser } = useContext(UserContext)
     // Desturucturing form filed items
     const { email, password } = formFields;
     // console.log(formFields)
@@ -26,7 +27,7 @@ const SignInForm = () => {
             const { user } = await signInUserAuthUserWithEmailAndPassword(email, password);
             // console.log(response)
             alert('User Logged IN')
-            // setCurrentUser(user)
+            setCurrentUser(user)
             resetForm()
         }
         catch (error) {

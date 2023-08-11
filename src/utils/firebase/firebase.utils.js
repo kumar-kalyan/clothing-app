@@ -20,6 +20,8 @@ googleProvider.setCustomParameters({
 })
 // authenticate with Firebase
 export const auth = getAuth();
+
+
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider)
 // Create db 
@@ -48,6 +50,36 @@ export const getCategoriesAndDocuments = async () => {
     }, {})
     return categoryMap
 }
+
+
+/*Handle Orders*/
+export const placeUserOrder = async (total, orderInfo) => {
+    const user = auth.currentUser
+    // check if user logged in 
+    if (!user)
+        return "Please Sign In To place order"
+    const items = [...orderInfo]
+    if (items.length === 0)
+        return "Cannot place order with empty cart"
+    const orderCollectionRef = collection(db, "orders")
+    const orderDocRef = doc(orderCollectionRef);
+    const createdAt = new Date();
+    const userId = user.uid;
+    const status = 'placed';
+
+    try {
+        await setDoc(orderDocRef, {
+            userId, createdAt, status, total, items
+        })
+    }
+    catch (error) {
+        console.log(error)
+    }
+    return orderDocRef;
+}
+
+
+/*User Functions */
 
 //Register user in db
 export const createUserDocumentFromAuth = async (userAuth, additonalInfo = {}) => {
