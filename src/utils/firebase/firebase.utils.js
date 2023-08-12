@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
-import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, getDocs, query } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, getDocs, query, where } from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBaarFfg4vniiYv0mnyGdfTm5jgX_Il4oc",
@@ -51,6 +51,24 @@ export const getCategoriesAndDocuments = async () => {
     return categoryMap
 }
 
+/*Feth User Orders*/
+export const fetchUserOrders = async () => {
+    const user = auth.currentUser;
+    if (!user)
+        return "Please Sign in to place order"
+    try {
+        const ordersDocRef = collection(db, "orders")
+        const q = query(ordersDocRef, where('userId', '==', user.uid))
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+        })
+    }
+    catch (error) {
+        console.log(error)
+    }
+
+}
 
 /*Handle Orders*/
 export const placeUserOrder = async (total, orderInfo) => {
