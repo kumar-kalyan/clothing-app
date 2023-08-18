@@ -6,7 +6,7 @@
     - Update Profile
     - Update user Info 
 - ### Routes
-    - Set up 404 Page
+    - Set up 404 Page {done}
     - Set up user dashboard
 - ### Serverless Functions
     - integrate serverless functions with netlify edge functions 
