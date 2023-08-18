@@ -4,15 +4,11 @@ import Navigation from './routes/navigation/navigation.component';
 import Authentication from './routes/authentication/authentication.component';
 import Shop from './routes/shop/shop.component';
 import Checkout from './routes/checkout/checkout.component';
-import { fetchUserOrders } from './utils/firebase/firebase.utils';
+import UserOrders from './routes/user-orders/user-orders.component';
+import UnkownRoute from './routes/404/un-known-route.component';
 function App() {
 
-  const UserOrders = () => {
 
-    return (<><h1>Orders Page </h1>
-      <button onClick={fetchUserOrders}>Fetch</button></>)
-
-  }
   return (
     <Routes>
       <Route path='/' element={<Navigation />}>
@@ -21,6 +17,7 @@ function App() {
         <Route path='checkout' element={<Checkout />} />
         <Route path='auth' element={<Authentication />} />
         <Route path='orders' element={<UserOrders />} />
+        <Route path='*' element={<UnkownRoute />} />
       </Route>
     </Routes>
 

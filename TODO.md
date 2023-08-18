@@ -5,6 +5,11 @@
     - Cancel Orders
     - Update Profile
     - Update user Info 
+- ### Routes
+    - Set up 404 Page
+    - Set up user dashboard
+- ### Serverless Functions
+    - integrate serverless functions with netlify edge functions 
 - ### Fix checkout 
     - Add Stripe Payment Method
     - Add User Address
@@ -15,13 +20,15 @@
 - ### Add Test Cases
     - End to end testing using Jest 
 - ### Add Redux for State Management 
-- Add a .env File 
-- Update Readme File with proper Project Description
-- Inplement Mobile Resposnive Style 
+    - Add a .env File 
+    - Update Readme File with proper Project Description
+    - Inplement Mobile Resposnive Style 
 
 - ### Notification 
-- Integrate Novu 
-- Add Push Notification 
-- Add Email Notification
+    - Integrate Novu 
+    - Add Push Notification 
+    - Add Email Notification
 
 
+- ### Add CI CD 
+    - Set up custom deployment functions and triggers
