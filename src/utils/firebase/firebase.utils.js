@@ -46,9 +46,12 @@ export const getCategoriesAndDocuments = async () => {
     const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
         const { title, items } = docSnapshot.data()
         acc[title.toLowerCase()] = items
+
         return acc
     }, {})
+    console.log(categoryMap)
     return categoryMap
+
 }
 
 /*Feth User Orders*/
@@ -60,9 +63,14 @@ export const fetchUserOrders = async () => {
         const ordersDocRef = collection(db, "orders")
         const q = query(ordersDocRef, where('userId', '==', user.uid))
         const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
-        })
+        const userOrdersMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+            const { total, status } = docSnapshot.data()
+            const { id } = docSnapshot;
+            acc[id] = { total, status }
+            return acc
+        }, {})
+        return userOrdersMap;
+        console.log(userOrdersMap)
     }
     catch (error) {
         console.log(error)

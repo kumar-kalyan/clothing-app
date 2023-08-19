@@ -1,7 +1,6 @@
 import './directory-item.styles.scss'
 import { Link } from 'react-router-dom';
 import Button from '../button/button.component';
-import { } from 'react-router-dom'
 const DirectoryItem = ({ imageUrl, title }) => {
     return (
 
