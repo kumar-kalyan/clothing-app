@@ -1,13 +1,13 @@
 <!-- Add empty cart facility on -->
 ## TODO
 - ### Building a user dashboard 
-    - View Orders
+    - View Orders {Done}
     - Cancel Orders
     - Update Profile
     - Update user Info 
 - ### Routes
     - Set up 404 Page {done}
-    - Set up user dashboard
+    - Set up user dashboard {pending}
 - ### Serverless Functions
     - integrate serverless functions with netlify edge functions 
 - ### Fix checkout 
