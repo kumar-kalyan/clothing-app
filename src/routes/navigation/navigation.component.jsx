@@ -1,5 +1,5 @@
 import { LogoContainer, NavigationContainer, NavLink, NavLinksContainer } from './navigation.styles'
-import { Outlet, Link } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/card-dropdown/card-dropdown.component';
 import { Fragment, useContext } from "react";

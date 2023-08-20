@@ -9,3 +9,6 @@ padding:10px
 export const OrdersConatiner = styled.div`
 
 ` 
+export const ProfileContainer = styled.div`
+padding:10px
+`
